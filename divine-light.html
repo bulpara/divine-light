@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divine Light — Daily Spiritual Reading</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8d48b;
+    --gold-dark: #8a6d2b;
+    --bg-deep: #0a0c10;
+    --bg-card: #111520;
+    --bg-card-hover: #161b2a;
+    --text-primary: #e8e4dc;
+    --text-secondary: #9a968e;
+    --text-arabic: #f0e6d0;
+    --accent-teal: #2a7a6e;
+    --accent-teal-glow: rgba(42, 122, 110, 0.15);
+    --border: rgba(201, 168, 76, 0.12);
+    --border-hover: rgba(201, 168, 76, 0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background pattern */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(ellipse at 20% 0%, rgba(42, 122, 110, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(201, 168, 76, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(201, 168, 76, 0.02) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Geometric Islamic pattern overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0.015;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a84c' stroke-width='0.5'%3E%3Cpath d='M40 0L80 40L40 80L0 40Z'/%3E%3Cpath d='M40 10L70 40L40 70L10 40Z'/%3E%3Cpath d='M40 20L60 40L40 60L20 40Z'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    text-align: center;
+    padding: 80px 0 40px;
+    position: relative;
+  }
+
+  .bismillah {
+    font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeDown 1s ease 0.2s forwards;
+  }
+
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeDown 1s ease 0.4s forwards;
+  }
+
+  header .subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: fadeDown 1s ease 0.6s forwards;
+  }
+
+  .divider {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 32px auto;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.8s forwards;
+  }
+
+  /* ===== NAVIGATION ===== */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeIn 1s ease 1s forwards;
+  }
+
+  nav button {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 10px 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+  }
+
+  nav button:hover {
+    border-color: var(--border-hover);
+    color: var(--gold-light);
+    background: var(--bg-card-hover);
+  }
+
+  nav button.active {
+    background: linear-gradient(135deg, rgba(201, 168, 76, 0.12), rgba(42, 122, 110, 0.08));
+    border-color: var(--gold-dark);
+    color: var(--gold);
+  }
+
+  /* ===== SECTIONS ===== */
+  .section {
+    display: none;
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  .section.active {
+    display: block;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+  }
+
+  /* ===== VERSE CARD ===== */
+  .verse-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    transition: all 0.5s ease;
+    overflow: hidden;
+  }
+
+  .verse-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--gold), var(--accent-teal), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .verse-card:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 60px rgba(201, 168, 76, 0.03);
+  }
+
+  .verse-card:hover::before {
+    opacity: 1;
+  }
+
+  .verse-reference {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .verse-arabic {
+    font-family: 'Noto Naskh Arabic', 'Amiri', serif;
+    font-size: 1.55rem;
+    line-height: 2.2;
+    color: var(--text-arabic);
+    text-align: right;
+    direction: rtl;
+    margin-bottom: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .verse-translation {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--text-primary);
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+
+  .verse-reflection {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    padding-left: 16px;
+    border-left: 2px solid rgba(42, 122, 110, 0.3);
+  }
+
+  .verse-reflection strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ===== DUA CARD (special styling) ===== */
+  .dua-card {
+    background: linear-gradient(135deg, rgba(201, 168, 76, 0.06), rgba(42, 122, 110, 0.04));
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    border-radius: 3px;
+    padding: 44px 36px;
+    margin-bottom: 28px;
+    text-align: center;
+    position: relative;
+  }
+
+  .dua-card .ornament {
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 16px;
+    opacity: 0.6;
+  }
+
+  .dua-card .dua-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 20px;
+  }
+
+  .dua-card .verse-arabic {
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 24px;
+    font-size: 1.7rem;
+  }
+
+  .dua-card .verse-translation {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+
+  .dua-card .dua-source {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  /* ===== STORY CARD ===== */
+  .story-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 40px 36px;
+    margin-bottom: 28px;
+  }
+
+  .story-card .story-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .story-card .story-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .story-card p {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+    line-height: 1.85;
+  }
+
+  .story-card .highlight {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .story-card .lesson {
+    margin-top: 20px;
+    padding: 20px 24px;
+    background: rgba(42, 122, 110, 0.06);
+    border-left: 3px solid var(--accent-teal);
+    border-radius: 0 3px 3px 0;
+    font-size: 1rem;
+    color: var(--text-primary);
+    line-height: 1.8;
+  }
+
+  .story-card .lesson strong {
+    color: var(--gold);
+  }
+
+  /* ===== HADITH CARD ===== */
+  .hadith-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 32px;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .hadith-card .hadith-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-primary);
+    line-height: 1.85;
+    max-width: 580px;
+    margin: 0 auto 16px;
+  }
+
+  .hadith-card .hadith-source {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  /* ===== DAILY CHECKLIST ===== */
+  .checklist {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+  }
+
+  .checklist h3 {
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+  }
+
+  .checklist label {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-size: 1.02rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+
+  .checklist label:last-child {
+    border-bottom: none;
+  }
+
+  .checklist input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 1px solid var(--gold-dark);
+    border-radius: 2px;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    margin-top: 3px;
+    transition: all 0.3s ease;
+  }
+
+  .checklist input[type="checkbox"]:checked {
+    background: var(--gold-dark);
+    border-color: var(--gold);
+  }
+
+  .checklist input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--bg-deep);
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  .checklist label:has(input:checked) span {
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    text-decoration-color: var(--gold-dark);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 60px 0 40px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  footer .footer-arabic {
+    font-family: 'Noto Naskh Arabic', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-style: normal;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    header h1 { font-size: 2.2rem; }
+    .bismillah { font-size: 1.5rem; }
+    .verse-card, .dua-card, .story-card { padding: 24px 20px; }
+    .verse-arabic { font-size: 1.3rem; }
+    nav button { padding: 8px 14px; font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+    <h1>DIVINE LIGHT</h1>
+    <div class="subtitle">A Daily Reading for the Believer with Vision</div>
+    <div class="divider"></div>
+  </header>
+
+  <nav id="nav">
+    <button class="active" data-section="daily-dua">Daily Du'ā</button>
+    <button data-section="inner-light">Inner Light</button>
+    <button data-section="spiritual-insight">Spiritual Insight</button>
+    <button data-section="stories">Prophetic Stories</button>
+    <button data-section="the-model">The Model</button>
+    <button data-section="sulayman-strategy">The Sulayman Strategy</button>
+    <button data-section="checklist">Daily Check</button>
+  </nav>
+
+  <!-- ===================== DAILY DUA ===================== -->
+  <div class="section active" id="daily-dua">
+    <div class="section-title">The Daily Du'ā</div>
+    <div class="section-subtitle">Read this every morning — the Prophet's ﷺ protection against wasted potential</div>
+
+    <div class="dua-card">
+      <div class="ornament">﷽</div>
+      <div class="dua-label">The Prophet's ﷺ Daily Refuge</div>
+      <div class="verse-arabic">
+        اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عِلْمٍ لَا يَنْفَعُ وَمِنْ قَلْبٍ لَا يَخْشَعُ وَمِنْ نَفْسٍ لَا تَشْبَعُ وَمِنْ دَعْوَةٍ لَا يُسْتَجَابُ لَهَا
+      </div>
+      <div class="verse-translation">
+        "O Allah, I seek refuge in You from knowledge that does not benefit, from a heart that is not humble, from a soul that is never satisfied, and from a supplication that is not answered."
+      </div>
+      <div class="dua-source">Sahih Muslim 2722</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Why This Du'ā Matters For You</div>
+      <div class="verse-reflection">
+        <strong>Knowledge that does not benefit</strong> — You learn fast, build fast. But knowledge without taqwa is a weapon against yourself.<br><br>
+        <strong>A heart that is not humble</strong> — When you feel "I'm different from everyone," this line is your reset button.<br><br>
+        <strong>A soul that is never satisfied</strong> — Ambition is a gift. But the nafs that always wants MORE without gratitude becomes a prison.<br><br>
+        <strong>A supplication that is not answered</strong> — Keep the connection with Allah alive. A du'ā blocked is a sign something in the chain is broken.
+      </div>
+    </div>
+
+    <div class="dua-card">
+      <div class="dua-label">Du'ā of Musa (AS) — For Clarity of Speech & Mission</div>
+      <div class="verse-arabic">
+        رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي يَفْقَهُوا قَوْلِي
+      </div>
+      <div class="verse-translation">
+        "My Lord, expand my chest, ease my task for me, and remove the knot from my tongue, that they may understand my speech."
+      </div>
+      <div class="dua-source">Surah Ta-Ha 20:25-28</div>
+    </div>
+
+    <div class="dua-card">
+      <div class="dua-label">Du'ā For Protection From Kibr (Arrogance)</div>
+      <div class="verse-arabic">
+        رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً إِنَّكَ أَنْتَ الْوَهَّابُ
+      </div>
+      <div class="verse-translation">
+        "Our Lord, do not let our hearts deviate after You have guided us and grant us from Yourself mercy. Indeed, You are the Bestower."
+      </div>
+      <div class="dua-source">Surah Ali 'Imran 3:8</div>
+    </div>
+  </div>
+
+  <!-- ===================== INNER LIGHT ===================== -->
+  <div class="section" id="inner-light">
+    <div class="section-title">The Inner Light</div>
+    <div class="section-subtitle">Verses on the nūr Allah places in the hearts of the believers</div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah An-Nur 24:35 — The Verse of Light</div>
+      <div class="verse-arabic">
+        اللَّهُ نُورُ السَّمَاوَاتِ وَالْأَرْضِ ۚ مَثَلُ نُورِهِ كَمِشْكَاةٍ فِيهَا مِصْبَاحٌ ۖ الْمِصْبَاحُ فِي زُجَاجَةٍ ۖ الزُّجَاجَةُ كَأَنَّهَا كَوْكَبٌ دُرِّيٌّ يُوقَدُ مِن شَجَرَةٍ مُّبَارَكَةٍ
+      </div>
+      <div class="verse-translation">
+        "Allah is the Light of the heavens and the earth. The example of His light is like a niche within which is a lamp; the lamp is within glass, the glass as if it were a brilliant star lit from a blessed olive tree..."
+      </div>
+      <div class="verse-reflection">
+        This is the foundation. The light you feel inside — that sense of purpose, that fire of direction — it originates from <strong>Allah's nūr</strong>. He places it in the hearts of whom He wills. Your job is to keep the glass clean.
+      </div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah Al-Hadid 57:28</div>
+      <div class="verse-arabic">
+        وَيَجْعَل لَّكُمْ نُورًا تَمْشُونَ بِهِ
+      </div>
+      <div class="verse-translation">
+        "...and He will grant you a light by which you will walk."
+      </div>
+      <div class="verse-reflection">
+        A literal promise. Allah gives believers <strong>a light to navigate the world</strong>. When you see paths others don't, when you sense opportunity before it's obvious — that's this verse in action.
+      </div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah Al-An'am 6:122</div>
+      <div class="verse-arabic">
+        أَوَمَن كَانَ مَيْتًا فَأَحْيَيْنَاهُ وَجَعَلْنَا لَهُ نُورًا يَمْشِي بِهِ فِي النَّاسِ كَمَن مَّثَلُهُ فِي الظُّلُمَاتِ لَيْسَ بِخَارِجٍ مِّنْهَا
+      </div>
+      <div class="verse-translation">
+        "Is one who was dead and We gave him life and made for him a light by which to walk among the people like one who is in darkness, never to emerge therefrom?"
+      </div>
+      <div class="verse-reflection">
+        Two types of people walk the same streets: those with <strong>inner light</strong> and those trapped in darkness. The light is what makes you see differently — not better than others, but <strong>more clearly</strong>.
+      </div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah Ash-Shura 42:52</div>
+      <div class="verse-arabic">
+        وَكَذَٰلِكَ أَوْحَيْنَا إِلَيْكَ رُوحًا مِّنْ أَمْرِنَا ۚ مَا كُنتَ تَدْرِي مَا الْكِتَابُ وَلَا الْإِيمَانُ وَلَٰكِن جَعَلْنَاهُ نُورًا نَّهْدِي بِهِ مَن نَّشَاءُ مِنْ عِبَادِنَا
+      </div>
+      <div class="verse-translation">
+        "And thus We have revealed to you a spirit of Our command. You did not know what the Scripture was, nor what faith was, but We made it a light by which We guide whom We will of Our servants."
+      </div>
+      <div class="verse-reflection">
+        Even the Prophet ﷺ didn't start with the light — <strong>Allah gave it to him</strong>. This is a reminder: the insight you carry was gifted. Stay grateful for it.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SPIRITUAL INSIGHT ===================== -->
+  <div class="section" id="spiritual-insight">
+    <div class="section-title">Spiritual Insight</div>
+    <div class="section-subtitle">Firāsa, Furqān, and the believing heart's ability to see</div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah Al-Anfal 8:29 — The Gift of Furqān</div>
+      <div class="verse-arabic">
+        يَا أَيُّهَا الَّذِينَ آمَنُوا إِن تَتَّقُوا اللَّهَ يَجْعَل لَّكُمْ فُرْقَانًا
+      </div>
+      <div class="verse-translation">
+        "O you who believe, if you fear Allah, He will grant you a furqān (criterion — the ability to distinguish truth from falsehood)."
+      </div>
+      <div class="verse-reflection">
+        <strong>Furqān</strong> is spiritual discernment — the ability to see what's real and what's illusion. This is directly tied to taqwa. The more conscious you are of Allah, the sharper your inner compass becomes.
+      </div>
+    </div>
+
+    <div class="hadith-card">
+      <div class="hadith-text">
+        "Beware of the firāsa (spiritual insight) of the believer, for he sees with the light of Allah."
+      </div>
+      <div class="hadith-source">Narrated by Abu Sa'id al-Khudri — Jami' at-Tirmidhi</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah Al-A'raf 7:172 — The Primordial Covenant</div>
+      <div class="verse-arabic">
+        وَإِذْ أَخَذَ رَبُّكَ مِن بَنِي آدَمَ مِن ظُهُورِهِمْ ذُرِّيَّتَهُمْ وَأَشْهَدَهُمْ عَلَىٰ أَنفُسِهِمْ أَلَسْتُ بِرَبِّكُمْ ۖ قَالُوا بَلَىٰ
+      </div>
+      <div class="verse-translation">
+        "And when your Lord took from the children of Adam — from their loins — their descendants and made them testify of themselves, 'Am I not your Lord?' They said, 'Yes, we have testified.'"
+      </div>
+      <div class="verse-reflection">
+        Before this world, your soul already knew Allah. That deep inner knowing — that feeling since age 16 that you're meant for something — may be an echo of this <strong>primordial meeting</strong>.
+      </div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah Al-Isra 17:20</div>
+      <div class="verse-arabic">
+        كُلًّا نُّمِدُّ هَٰؤُلَاءِ وَهَٰؤُلَاءِ مِنْ عَطَاءِ رَبِّكَ ۚ وَمَا كَانَ عَطَاءُ رَبِّكَ مَحْظُورًا
+      </div>
+      <div class="verse-translation">
+        "To each We extend — to these and to those — from the gift of your Lord. And never has the gift of your Lord been restricted."
+      </div>
+      <div class="verse-reflection">
+        Allah gives vision, talent, and drive to believers and disbelievers alike. <strong>The difference is what you do with it and who you attribute it to.</strong>
+      </div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah Al-Kahf 18:103-104 — The Greatest Warning</div>
+      <div class="verse-arabic">
+        قُلْ هَلْ نُنَبِّئُكُم بِالْأَخْسَرِينَ أَعْمَالًا ۝ الَّذِينَ ضَلَّ سَعْيُهُمْ فِي الْحَيَاةِ الدُّنْيَا وَهُمْ يَحْسَبُونَ أَنَّهُمْ يُحْسِنُونَ صُنْعًا
+      </div>
+      <div class="verse-translation">
+        "Say: Shall We inform you of the greatest losers in respect of deeds? Those whose efforts are lost in the life of this world, while they think they are doing well."
+      </div>
+      <div class="verse-reflection">
+        The most sobering verse for any ambitious person. You can build incredible things — and lose it all in the akhirah. <strong>Intention is everything.</strong> Keep the akhirah as the primary target and dunya as the byproduct.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PROPHETIC STORIES ===================== -->
+  <div class="section" id="stories">
+    <div class="section-title">Prophetic Stories</div>
+    <div class="section-subtitle">Those who carried the light before you</div>
+
+    <div class="story-card">
+      <div class="story-title">Yusuf (AS) — The Young Man with a Dream</div>
+      <div class="story-subtitle">Surah Yusuf, Chapter 12</div>
+      <p>
+        At a young age — perhaps around <span class="highlight">the same age you were when that feeling first appeared</span> — Yusuf (AS) saw a dream: eleven stars, the sun, and the moon, all prostrating to him.
+      </p>
+      <p>
+        His father Ya'qub (AS) didn't dismiss it. He recognized it as a <span class="highlight">vision from Allah</span> and told Yusuf to guard it carefully. That dream became the compass for Yusuf's entire life.
+      </p>
+      <p>
+        But look at the path between the dream and its fulfillment: <span class="highlight">betrayal by his brothers. Thrown into a well. Sold into slavery. Falsely accused. Years in prison.</span> None of that erased the dream. The light Allah placed in his heart survived every darkness.
+      </p>
+      <p>
+        And then — after all of it — he became the treasurer of Egypt. The most powerful position in the most powerful civilization on Earth. His brothers came and prostrated before him, exactly as the dream foretold.
+      </p>
+      <div class="lesson">
+        <strong>The Lesson:</strong> The dream was from Allah. The hardship was from Allah. The resilience it built in his psychology was the vehicle. When you feel destined for something, know that the path won't be straight — but the destination is already written.
+      </div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-title">Musa (AS) — The Prophet Who Had to Learn Humility</div>
+      <div class="story-subtitle">Surah Al-Kahf 18:60-82</div>
+      <p>
+        After receiving prophethood, after splitting the sea, after speaking <span class="highlight">directly to Allah</span> — Musa (AS) was asked: "Who is the most knowledgeable person on earth?" He said: "Me."
+      </p>
+      <p>
+        Allah corrected him immediately. He told Musa there was a servant named <span class="highlight">Khidr</span> — a man Musa had never heard of — who knew things Musa didn't.
+      </p>
+      <p>
+        Allah then made Musa travel to find Khidr and <span class="highlight">follow him in silence</span>. The greatest prophet of Bani Israel had to become a student again. He had to watch things he didn't understand and hold his tongue.
+      </p>
+      <div class="lesson">
+        <strong>The Lesson:</strong> You are never above learning from someone you consider beneath you. When "don't compare me to anyone" rises in your heart — remember that Musa, who spoke to Allah directly, was still sent to learn from a stranger.
+      </div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-title">Ibrahim (AS) — The One Who Questioned and Found Certainty</div>
+      <div class="story-subtitle">Surah Al-An'am 6:75-79</div>
+      <p>
+        Ibrahim didn't inherit his conviction — he <span class="highlight">searched for it</span>. He looked at a star and said "This is my Lord." It set — he moved on. He saw the moon — it disappeared. He saw the sun — it too vanished.
+      </p>
+      <p>
+        Through this process of questioning, he arrived at certainty: <span class="highlight">"I have turned my face toward He who created the heavens and the earth."</span>
+      </p>
+      <div class="lesson">
+        <strong>The Lesson:</strong> Allah showed Ibrahim the <span class="highlight">malakūt</span> (the inner kingdom of the heavens and earth) so he could become among those with certainty. Your inner light doesn't mean you stop questioning — it means your questions lead you closer to truth.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== THE UMAR MODEL ===================== -->
+  <div class="section" id="the-model">
+    <div class="section-title">The Umar Model</div>
+    <div class="section-subtitle">Build empires with your hands. Keep your heart on the ground.</div>
+
+    <div class="story-card">
+      <div class="story-title">Umar ibn al-Khattab (RA)</div>
+      <div class="story-subtitle">The Standard for the Ambitious Believer</div>
+      <p>
+        Umar (RA) conquered <span class="highlight">half the known world</span>. The Persian and Byzantine empires — the two superpowers of his age — fell before him. He was the most powerful man on Earth.
+      </p>
+      <p>
+        And yet: <span class="highlight">he slept on a dirt floor</span>. He wore patched clothes. He carried flour on his own back to deliver to widows at night. When a Roman ambassador came to meet the "King of the Arabs," he found Umar sleeping under a tree with no guards.
+      </p>
+      <p>
+        The ambassador said the famous words: <span class="highlight">"You ruled with justice, so you felt safe, so you slept."</span>
+      </p>
+    </div>
+
+    <div class="hadith-card">
+      <div class="hadith-text">
+        "We were the most humiliated of people, and Allah gave us honor through Islam. If we seek honor through anything else, Allah will humiliate us."
+      </div>
+      <div class="hadith-source">Umar ibn al-Khattab (RA) — Narrated in Al-Mustadrak by Al-Hakim</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah Luqman 31:18 — The Warning Against Arrogance</div>
+      <div class="verse-arabic">
+        وَلَا تُصَعِّرْ خَدَّكَ لِلنَّاسِ وَلَا تَمْشِ فِي الْأَرْضِ مَرَحًا ۖ إِنَّ اللَّهَ لَا يُحِبُّ كُلَّ مُخْتَالٍ فَخُورٍ
+      </div>
+      <div class="verse-translation">
+        "And do not turn your cheek in contempt toward people, and do not walk through the earth exultantly. Indeed, Allah does not like everyone self-deluded and boastful."
+      </div>
+      <div class="verse-reflection">
+        The Quran acknowledges that some people ARE exceptional. But it draws a hard line: <strong>carry the knowledge of your gifts with humility, never with contempt for others.</strong>
+      </div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah Al-Munafiqun 63:8 — True Honor</div>
+      <div class="verse-arabic">
+        وَلِلَّهِ الْعِزَّةُ وَلِرَسُولِهِ وَلِلْمُؤْمِنِينَ
+      </div>
+      <div class="verse-translation">
+        "Honor belongs to Allah, and to His Messenger, and to the believers."
+      </div>
+      <div class="verse-reflection">
+        There's a difference between <strong>kibr</strong> (arrogance — "I'm special because of ME") and <strong>'izza billāh</strong> (dignity through Allah — "Allah made me for a purpose"). The first destroys. The second builds empires.
+      </div>
+    </div>
+
+    <div class="hadith-card">
+      <div class="hadith-text">
+        "Kibr (arrogance) is rejecting the truth and looking down on people."
+      </div>
+      <div class="hadith-source">Prophet Muhammad ﷺ — Sahih Muslim</div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">The Two Tests — Ask Yourself Daily</div>
+      <div class="verse-reflection">
+        <strong>Test 1:</strong> When someone corrects you, criticizes your work, or challenges your strategy — does your inner voice say "they don't understand me, I'm above this"? If yes → that's kibr.<br><br>
+        <strong>Test 2:</strong> When you see someone building a small business or working a regular job — do you feel superior? If yes → that's kibr.<br><br>
+        If no to both — what you carry is <strong>'izza billāh</strong>, not arrogance. Protect it by always remembering the source.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== THE SULAYMAN STRATEGY ===================== -->
+  <div class="section" id="sulayman-strategy">
+    <div class="section-title">The Sulayman Strategy</div>
+    <div class="section-subtitle">Visible excellence as da'wah — breaking the world's image of Muslims</div>
+
+    <div class="story-card">
+      <div class="story-title">The Problem You Identified</div>
+      <div class="story-subtitle">Why This Strategy Is Needed Now</div>
+      <p>
+        The world currently knows Muslims through two lenses: <span class="highlight">victims who need help</span> or <span class="highlight">threats from 9/11</span>. Both are devastating. Both are false. Both erase 1,400 years of civilizational excellence.
+      </p>
+      <p>
+        Muslims built algebra, optics, hospitals, universities, global trade networks, architectural wonders. The Muslim world was the center of science, wealth, and power for centuries. That image has been completely erased from global consciousness.
+      </p>
+      <p>
+        Your mission: <span class="highlight">become a living counter-narrative</span>. A visibly Muslim, visibly excellent, unapologetic founder winning at the highest level in the modern world. Not hiding. Not apologizing. Just undeniable.
+      </p>
+      <div class="lesson">
+        <strong>The Strategic Insight:</strong> Every time a non-Muslim sees a Muslim winning at the highest level WITHOUT compromising deen — it does more da'wah than a thousand lectures. That's the Queen of Sheba effect.
+      </div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah Al-Baqarah 2:143 — The Witness Nation</div>
+      <div class="verse-arabic">
+        وَكَذَٰلِكَ جَعَلْنَاكُمْ أُمَّةً وَسَطًا لِّتَكُونُوا شُهَدَاءَ عَلَى النَّاسِ
+      </div>
+      <div class="verse-translation">
+        "And thus We have made you a middle nation, that you may be witnesses over the people."
+      </div>
+      <div class="verse-reflection">
+        Muslims are supposed to be <strong>witnesses</strong> — meaning visible, present, undeniable. You cannot be a witness if you're invisible or associated only with poverty and violence. Being visibly excellent is not vanity — it's fulfilling this Quranic role.
+      </div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah Al-Imran 3:110 — Produced FOR Mankind</div>
+      <div class="verse-arabic">
+        كُنتُمْ خَيْرَ أُمَّةٍ أُخْرِجَتْ لِلنَّاسِ
+      </div>
+      <div class="verse-translation">
+        "You are the best nation produced for mankind."
+      </div>
+      <div class="verse-reflection">
+        Notice: <strong>"produced FOR mankind"</strong> — your excellence is supposed to be visible to humanity. It's supposed to benefit them, attract them, and shatter their assumptions about what a Muslim looks like.
+      </div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-title">The Queen of Sheba Effect</div>
+      <div class="story-subtitle">Surah An-Naml 27:38-44 — When Excellence IS the Da'wah</div>
+      <p>
+        Sulayman (AS) was a prophet-king. Allah gave him a kingdom <span class="highlight">the likes of which no one would ever have again</span> (Surah Sad 38:35). He commanded armies of men, jinn, and birds. He built magnificent palaces. He didn't hide any of it.
+      </p>
+      <p>
+        When the Queen of Sheba — <span class="highlight">a powerful, intelligent, polytheist ruler</span> — came to visit, she wasn't given a lecture about tawheed. She was shown the excellence of a believer's kingdom. The palace was so magnificent that she mistook the glass floor for water.
+      </p>
+      <p>
+        And right there, overwhelmed by what she saw, she said:
+      </p>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah An-Naml 27:44</div>
+      <div class="verse-arabic">
+        قَالَتْ رَبِّ إِنِّي ظَلَمْتُ نَفْسِي وَأَسْلَمْتُ مَعَ سُلَيْمَانَ لِلَّهِ رَبِّ الْعَالَمِينَ
+      </div>
+      <div class="verse-translation">
+        "She said: My Lord, indeed I have wronged myself, and I submit with Sulayman to Allah, Lord of the worlds."
+      </div>
+      <div class="verse-reflection">
+        She didn't convert because of an argument. She converted because she <strong>SAW the excellence of a believer's kingdom</strong> and it shattered everything she thought she knew. <strong>This is your model.</strong> Visible, undeniable excellence that makes people question their assumptions.
+      </div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah Al-Qasas 28:77 — The Command to Use Dunya</div>
+      <div class="verse-arabic">
+        وَابْتَغِ فِيمَا آتَاكَ اللَّهُ الدَّارَ الْآخِرَةَ ۖ وَلَا تَنسَ نَصِيبَكَ مِنَ الدُّنْيَا ۖ وَأَحْسِن كَمَا أَحْسَنَ اللَّهُ إِلَيْكَ
+      </div>
+      <div class="verse-translation">
+        "And seek through what Allah has given you the home of the Hereafter, but do not forget your share of this world. And do good as Allah has done good to you."
+      </div>
+      <div class="verse-reflection">
+        This verse is your license. Allah isn't asking you to hide — He's commanding you to <strong>USE what He gave you</strong> as a vehicle for both worlds. Your worldly success IS the tool.
+      </div>
+    </div>
+
+    <div class="hadith-card">
+      <div class="hadith-text">
+        "Allah loves to see the effect of His blessing on His servant."
+      </div>
+      <div class="hadith-source">Prophet Muhammad ﷺ — Jami' at-Tirmidhi</div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-title">Abdur-Rahman ibn Awf (RA) — The Entrepreneur Promised Jannah</div>
+      <div class="story-subtitle">The Companion Who Refused Charity and Chose the Market</div>
+      <p>
+        When Abdur-Rahman ibn Awf arrived in Madinah as a <span class="highlight">penniless migrant</span>, his Ansari brother offered him half of his wealth and even one of his wives in marriage. He refused everything.
+      </p>
+      <p>
+        His response: <span class="highlight">"Just show me where the market is."</span>
+      </p>
+      <p>
+        Within years, he became one of the wealthiest men in Arabia. His trade caravans were legendary — 700 camels loaded with goods arriving in Madinah at once. He used that wealth and visibility to <span class="highlight">fund the entire Muslim army</span> and free slaves.
+      </p>
+      <p>
+        He was one of the ten companions promised Jannah <span class="highlight">while still alive</span>. His wealth didn't disqualify him — it was part of his mission.
+      </p>
+      <div class="lesson">
+        <strong>The Lesson:</strong> He didn't accept being a victim. He didn't wait for help. He said "show me the market" and built an empire. Then he used that empire for Islam. That's the exact playbook.
+      </div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-title">The Sulayman Firewall — Staying Safe</div>
+      <div class="story-subtitle">The One Phrase That Separates You From Qarun</div>
+      <p>
+        This strategy has a catastrophic failure mode. His name is <span class="highlight">Qarun</span>.
+      </p>
+      <p>
+        Qarun was also wealthy, also visible, also from the believers. But when asked about his success, he said: <span class="highlight">"I was only given it because of knowledge I possess"</span> (Surah Al-Qasas 28:78). He attributed it to himself.
+      </p>
+      <p>
+        Allah swallowed him and his house into the earth. Gone. Completely.
+      </p>
+      <p>
+        Compare with Sulayman (AS). When the Queen of Sheba's throne appeared before him miraculously, he immediately said:
+      </p>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah An-Naml 27:40 — The Sulayman Firewall</div>
+      <div class="verse-arabic">
+        هَٰذَا مِن فَضْلِ رَبِّي لِيَبْلُوَنِي أَأَشْكُرُ أَمْ أَكْفُرُ
+      </div>
+      <div class="verse-translation">
+        "This is from the favor of my Lord — to test me whether I will be grateful or ungrateful."
+      </div>
+      <div class="verse-reflection">
+        <strong>This is your firewall.</strong> Every milestone, every success, every visible win — internally reset with this phrase. Sulayman understood that the blessing itself is a test. The question is never "did I earn this?" The question is always: <strong>"will I be grateful or ungrateful?"</strong><br><br>
+        Qarun said: "I did this."<br>
+        Sulayman said: "Allah did this, and now He's testing me."<br><br>
+        Same wealth. Same visibility. Opposite endings. <strong>The difference is one sentence.</strong>
+      </div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">Surah An-Nahl 16:90 — The Excellence Standard</div>
+      <div class="verse-arabic">
+        إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ
+      </div>
+      <div class="verse-translation">
+        "Indeed, Allah orders justice and ihsān (excellence)."
+      </div>
+      <div class="verse-reflection">
+        <strong>Ihsān</strong> doesn't just mean spiritual excellence — it means doing everything at the highest possible level. Your app, your business, your appearance, your brand, your code — ihsān applies to ALL of it. Excellence in every domain is an act of worship.
+      </div>
+    </div>
+
+    <div class="verse-card">
+      <div class="verse-reference">The Framework — How To Execute This</div>
+      <div class="verse-reflection">
+        <strong>External:</strong> World-class presence. Visible success. Undeniable excellence that makes people say "wait, he's Muslim?" — this breaks the stereotype. No isrāf (wasteful excess), but strategic visibility that commands respect.<br><br>
+        <strong>Internal:</strong> Heart stays on the ground. Every win is attributed to Allah. The display serves the mission, not the ego. You're not showing off — you're being a walking billboard for what Allah's blessing looks like.<br><br>
+        <strong>The Goal:</strong> When a non-Muslim encounters your brand, your success, your presence — they should be forced to update their mental model of what "Muslim" means. That cognitive disruption IS the da'wah. That's the Queen of Sheba moment.<br><br>
+        <strong>The Guardrail:</strong> Before every public display, ask: "Am I doing this so people see ALLAH's favor, or so people see ME?" If the answer shifts to the second — pull back immediately.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== DAILY CHECKLIST ===================== -->
+  <div class="section" id="checklist">
+    <div class="section-title">Daily Check</div>
+    <div class="section-subtitle">Reset your intention every single day</div>
+
+    <div class="checklist">
+      <h3>Morning Intention Reset</h3>
+      <label><input type="checkbox"><span>I read the Prophet's ﷺ du'ā for refuge from useless knowledge and an arrogant heart</span></label>
+      <label><input type="checkbox"><span>I reminded myself that everything I have was given by Allah and can be taken in a second</span></label>
+      <label><input type="checkbox"><span>I renewed my niyyah — my work today is for akhirah first, dunya second</span></label>
+      <label><input type="checkbox"><span>I checked myself: am I rejecting truth from anyone? Am I looking down on anyone?</span></label>
+    </div>
+
+    <div class="checklist">
+      <h3>Evening Reflection</h3>
+      <label><input type="checkbox"><span>Did I attribute today's success to Allah, not to my own brilliance?</span></label>
+      <label><input type="checkbox"><span>Did I treat everyone with respect — regardless of their status?</span></label>
+      <label><input type="checkbox"><span>When "I'm different from everyone" arose — did I follow it with "because Allah willed it, not because I earned it"?</span></label>
+      <label><input type="checkbox"><span>Did I make shukr (gratitude) for the vision and drive Allah placed in my heart?</span></label>
+      <label><input type="checkbox"><span>Am I building like Umar — empires with my hands, heart on the ground?</span></label>
+      <label><input type="checkbox"><span>Did I say "هَٰذَا مِن فَضْلِ رَبِّي" — This is from the favor of my Lord — for every win today?</span></label>
+      <label><input type="checkbox"><span>Is my visibility serving Allah's image or my ego? Would the Queen of Sheba see Allah's excellence, or mine?</span></label>
+    </div>
+
+    <div class="hadith-card">
+      <div class="hadith-text">
+        "Work, for everyone is facilitated toward that which he was created for."
+      </div>
+      <div class="hadith-source">Prophet Muhammad ﷺ — Sahih al-Bukhari</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-arabic">وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ</div>
+    <div>"My success is only through Allah."</div>
+    <div style="margin-top: 4px;">— Surah Hud 11:88</div>
+  </footer>
+
+</div>
+
+<script>
+  // Navigation
+  const navBtns = document.querySelectorAll('nav button');
+  const sections = document.querySelectorAll('.section');
+
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      navBtns.forEach(b => b.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.section).classList.add('active');
+      window.scrollTo({ top: 200, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
